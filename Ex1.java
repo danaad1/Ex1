@@ -15,10 +15,16 @@ public class Ex1 {
          * Convert the given number (num) to a decimal representation (as int).
          * It the given number is not in a valid format returns -1.
          * @param num a String representing a number in basis [2,16]
-         * @return
+         * @return number as int
          */
         public static int number2Int(String num) {
             int ans = -1;
+
+
+
+
+
+
             // add your code here
 
             ////////////////////
@@ -31,6 +37,25 @@ public class Ex1 {
          */
         public static boolean isNumber(String a) {
             boolean ans = true;
+
+            if (!a.contains("b")){
+                a += "bA";
+            }
+            String [] arrNum = a.split("b");
+            String validNum = "0123456789ABCDEFG" ;
+
+            if (arrNum[0].isEmpty()){ // if string is empty return not valid
+                ans = false;
+            }
+
+            for(int i = 0; i<arrNum[0].length(); i++) { // loop over array index 0
+                char t = arrNum[0].charAt(i);
+                int n = validNum.indexOf(t +"");
+                 if(!validNum.contains(t+ "") || n >= validNum.indexOf(arrNum[1])){ // if any number is invalid or is bigger than basis return false
+                    ans = false;
+                }
+            }
+
             // add your code here
 
             ////////////////////
