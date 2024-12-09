@@ -123,7 +123,7 @@ public class Ex1 {
     public static String int2Number(int num, int base) {
         String ans = "";
 
-        if(num > 0 ){
+        if(num >= 0 && base >= 2 && base <= 16 ){
             ans = Integer.toString(num , base).toUpperCase();
         }
         // add your code here
