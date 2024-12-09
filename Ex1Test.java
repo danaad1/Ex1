@@ -35,6 +35,19 @@ public class Ex1Test {
         }
         @Test
         void int2NumberTest() {
+            assertEquals( "1011" , Ex1.int2Number(11,2));
+            assertEquals( "" , Ex1.int2Number(-2,3));
+//            assertEquals( "" , Ex1.int2Number(11,17));
+//            assertEquals( "" , Ex1.int2Number(11,-2));
+            assertEquals( "FF" , Ex1.int2Number(255,16));
+            assertEquals( "2E" , Ex1.int2Number(46,16));
+            assertEquals( "100" , Ex1.int2Number(64,8));
+//            assertEquals( "" , Ex1.int2Number(156,18));
+            assertEquals( "0" , Ex1.int2Number(0,2));
+            assertEquals( "11" , Ex1.int2Number(11,10));
+//            assertEquals( "" , Ex1.int2Number(33,3));
+
+
            // implement this test
         }
         @Test

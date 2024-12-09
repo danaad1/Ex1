@@ -85,7 +85,7 @@ public class Ex1 {
                 a += "bA";
             }
             String[] arrNum = a.split("b");
-            String validNum = "0123456789ABCDEFG";
+            String validNum = "0123456789ABCDEFG"; //string of all valid characters
 
             if (arrNum[0].isEmpty()) { // if string is empty return not valid
                 ans = false;
@@ -93,7 +93,7 @@ public class Ex1 {
 
             for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
                 char t = arrNum[0].charAt(i);
-                int n = validNum.indexOf(t + ""); //will pass 32b3b5 ?  break down to num valid bais val
+                int n = validNum.indexOf(t + ""); //  break down to num valid bais val
                 if (!validNum.contains(t + "") || n >= validNum.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
                     ans = false;
                     break;
@@ -122,6 +122,10 @@ public class Ex1 {
      */
     public static String int2Number(int num, int base) {
         String ans = "";
+
+        if(num > 0 ){
+            ans = Integer.toString(num , base).toUpperCase();
+        }
         // add your code here
 
         ////////////////////
