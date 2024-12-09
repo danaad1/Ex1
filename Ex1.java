@@ -80,19 +80,20 @@ public class Ex1 {
         if (arrNum[0].isEmpty()) { // if string is empty return not valid
             ans = false;
         }
-
-        for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
-            char t = arrNum[0].charAt(i);
-            int n = validNum.indexOf(t + ""); //will pass 32b3b5 ?  break down to num valid bais val
-            if (!validNum.contains(t + "") || n >= validNum.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
-                ans = false;
-                break;
+        else { // only if ans is true continue checking validity of num
+            for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
+                char t = arrNum[0].charAt(i);
+                int n = validNum.indexOf(t + ""); //will pass 32b3b5 ?  break down to num valid bais val
+                if (!validNum.contains(t + "") || n >= validNum.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
+                    ans = false;
+                    break;
+                }
             }
-        }
-        if (!validNum.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
-            return false;
-        }
+            if (!validNum.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
+                return false;
+            }
 
+        }
 
         // add your code here
 
@@ -167,13 +168,13 @@ public class Ex1 {
      * this static function converts number form a char to an integer
      *
      * @param num a char
-     * @returns an int
+     * @return char as an int
      */
     public static int charToInt(char num) {
         int intNum = 0;
         String numbers = "0123456789ABCDEFG"; // all possible characters for num
         for (int i = 0; i < numbers.length(); i++) { // loop over string numbers
-            if (numbers.charAt(i) == num) { // if chat at i is num
+            if (numbers.charAt(i) == num) { // if chat at i is num // להוסיף בדיקה לארר 1
                 intNum = i;  // find the int value of num
             }
         }
