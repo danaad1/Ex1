@@ -23,25 +23,30 @@ public class Ex1 {
     public static int number2Int(String num) {
         int ans = -1;
 
-        if (isNumber(num)) { // if num is in wanted format
+        if (!num.contains("b")){ // add basis 10 to num so that conversion works
+            num += "bA";
+        }
+
+        if (isNumber(num)) { // if num is in wanted format (is valid)
             ans = 0; // int representation of num
 
-            String a = "0123456789ABCDEFG"; // all possible characters for num
+            String number = num.split("b")[0];// extract the number part of num
 
-            String number = num.split("b")[0]; // find the number part of num
+            int base = charToInt( num.split("b")[1].charAt(0)); // find the basis part of num and convert to int
 
-            int base = Integer.parseInt(num.split("b")[1]); // find the basis part of num and convert to int
-
-            int weight = 0; // weight of number to know by how much to multiply
-
-            for (int i = number.length() - 1; i >= 0; i--) {
-//                  for (int j = 0; j < a.length(); j++) {
-                int index = a.indexOf(number.charAt(i));
-
-                ans += (int) (index * Math.pow(base, weight));
-                weight += 1;
-//                  }
-            }
+            ans = Integer.parseInt(number , base); //java function to convert String to integer in base 10
+//
+//            String a = "0123456789ABCDEFG"; // all possible characters for num
+//
+//            int weight = 0; // weight of number to know by how much to multiply
+//
+//            for (int i = number.length() - 1; i >= 0; i--) {
+////                  for (int j = 0; j < a.length(); j++) {
+//                int index = a.indexOf(number.charAt(i));
+//
+//                ans += (int) (index * Math.pow(base, weight));
+//                weight += 1;
+////                  }
         }
 
 //            String [] arr = num.split("b");
@@ -71,16 +76,21 @@ public class Ex1 {
      */
     public static boolean isNumber(String a) {
         boolean ans = true;
-        if (!a.contains("b")) {
-            a += "bA";
-        }
-        String[] arrNum = a.split("b");
-        String validNum = "0123456789ABCDEFG";
 
-        if (arrNum[0].isEmpty()) { // if string is empty return not valid
+        if (a.equals("b")) {
             ans = false;
-        }
-        else { // only if ans is true continue checking validity of num
+        } else { // only if ans is true continue checking validity of num
+
+            if (!a.contains("b")) {
+                a += "bA";
+            }
+            String[] arrNum = a.split("b");
+            String validNum = "0123456789ABCDEFG";
+
+            if (arrNum[0].isEmpty()) { // if string is empty return not valid
+                ans = false;
+            }
+
             for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
                 char t = arrNum[0].charAt(i);
                 int n = validNum.indexOf(t + ""); //will pass 32b3b5 ?  break down to num valid bais val
