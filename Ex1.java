@@ -123,8 +123,8 @@ public class Ex1 {
     public static String int2Number(int num, int base) {
         String ans = "";
 
-        if(num >= 0 && base >= 2 && base <= 16 ){
-            ans = Integer.toString(num , base).toUpperCase();
+        if(num >= 0 && base >= 2 && base <= 16 ){ // check if num and base fulfill given conditions.
+            ans = Integer.toString(num , base).toUpperCase(); // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
         }
         // add your code here
 
@@ -141,6 +141,10 @@ public class Ex1 {
      */
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
+        if (number2Int(n1)!=(number2Int(n2))) {
+            ans = false;
+        }
+
         // add your code here
 
         ////////////////////
@@ -157,6 +161,14 @@ public class Ex1 {
      */
     public static int maxIndex(String[] arr) {
         int ans = 0;
+        int maxVal = 0; // the current max value
+
+        for (int i = 0 ; i < arr.length ; i++ ) { // loop over given array
+            if (number2Int(arr[i]) > maxVal) { // check if value of String at index i is higher that current maxVal
+                maxVal = number2Int(arr[i]); // redefine maxVal
+                ans = i; // define maxVal index to num
+            }
+        }
         // add your code here
 
         ////////////////////

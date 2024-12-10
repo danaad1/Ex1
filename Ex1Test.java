@@ -78,6 +78,15 @@ public class Ex1Test {
                 // implement
         }
 
+        @Test
+        void testEquals() {
+            assertTrue(Ex1.equals("11bA" , "1011b2"));
+            assertTrue(Ex1.equals("11" , "11"));
+            assertTrue(Ex1.equals("FFbG" , "2010b5")); //255
+            assertFalse(Ex1.equals("FFbG" , "1616bG"));
+            assertFalse(Ex1.equals("11bA" , "11b2"));
+            assertFalse(Ex1.equals("" , "0"));
+        }
 
 
     // Add additional test functions - test as much as you can.
