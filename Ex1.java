@@ -87,20 +87,22 @@ public class Ex1 {
             String[] arrNum = a.split("b");
             String validNum = "0123456789ABCDEFG"; //string of all valid characters
 
-            if (arrNum[0].isEmpty()) { // if string is empty return not valid
+            if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
                 ans = false;
             }
+            else {
 
-            for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
-                char t = arrNum[0].charAt(i);
-                int n = validNum.indexOf(t + ""); //  break down to num valid bais val
-                if (!validNum.contains(t + "") || n >= validNum.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
-                    ans = false;
-                    break;
+                for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
+                    char t = arrNum[0].charAt(i);
+                    int n = validNum.indexOf(t + ""); //  break down to num valid bais val
+                    if (!validNum.contains(t + "") || n >= validNum.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
+                        ans = false;
+                        break;
+                    }
                 }
-            }
-            if (!validNum.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
-                return false;
+                if (!validNum.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
+                    return false;
+                }
             }
 
         }
@@ -142,7 +144,7 @@ public class Ex1 {
      */
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
-        if (number2Int(n1)!=(number2Int(n2))) {
+        if (number2Int(n1)!=(number2Int(n2))) { // check if int val of n1 != to int val of n2
             ans = false;
         }
 

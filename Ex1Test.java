@@ -22,12 +22,12 @@ public class Ex1Test {
 
         @Test
         void isBasisNumberTest() {
-            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA"};
+            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "6b7" };
             for(int i=0;i<good.length;i=i+1) {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {"3 b5" , "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "32b3b5", "b"};
+            String[] not_good = {"1b" , "b2" , "3 b5" , "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "32b3b5", "b" , "15b16" , "1b"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
@@ -44,7 +44,7 @@ public class Ex1Test {
             assertEquals( "100b8" , Ex1.int2Number(64,8));
             assertEquals( "" , Ex1.int2Number(156,18));
             assertEquals( "0b2" , Ex1.int2Number(0,2));
-            assertEquals( "11bA" , Ex1.int2Number(11,10));
+            assertEquals( "11b10" , Ex1.int2Number(11,10)); // fixxxxxxxxxxxxxxxxxxxxx
 //            assertEquals( "" , Ex1.int2Number(33,3)); should i even
 
 
