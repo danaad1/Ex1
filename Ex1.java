@@ -124,8 +124,9 @@ public class Ex1 {
         String ans = "";
 
         if(num >= 0 && base >= 2 && base <= 16 ){ // check if num and base fulfill given conditions.
-            ans = Integer.toString(num , base).toUpperCase(); // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
+            ans = Integer.toString(num , base).toUpperCase() + "b" + base; // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
         }
+//        ans += "b" + base;
         // add your code here
 
         ////////////////////

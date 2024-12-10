@@ -10,12 +10,12 @@ public class Ex1Test {
         @Test
         void computeNumberTest() {
             String s2 = "1011b2";
-            int v = Ex1.number2Int(s2);
+            int v = Ex1.number2Int(s2); //11
             assertEquals(v,11);
             String s10 = "1011bA";
-            v = Ex1.number2Int(s10);
-            s2 = Ex1.int2Number(v,2);
-            int v2 = Ex1.number2Int(s2);
+            v = Ex1.number2Int(s10); //1011
+            s2 = Ex1.int2Number(v,2);  // 11b2
+            int v2 = Ex1.number2Int(s2);  // 1011
             assertEquals(v,v2);
             assertTrue(Ex1.equals(s10,s2));
         }
@@ -35,16 +35,16 @@ public class Ex1Test {
         }
         @Test
         void int2NumberTest() {
-            assertEquals( "1011" , Ex1.int2Number(11,2));
+            assertEquals( "1011b2" , Ex1.int2Number(11,2));
             assertEquals( "" , Ex1.int2Number(-2,3));
             assertEquals( "" , Ex1.int2Number(11,17));
             assertEquals( "" , Ex1.int2Number(11,-2));
-            assertEquals( "FF" , Ex1.int2Number(255,16));
-            assertEquals( "2E" , Ex1.int2Number(46,16));
-            assertEquals( "100" , Ex1.int2Number(64,8));
+            assertEquals( "FFb16" , Ex1.int2Number(255,16));
+            assertEquals( "2Eb16" , Ex1.int2Number(46,16));
+            assertEquals( "100b8" , Ex1.int2Number(64,8));
             assertEquals( "" , Ex1.int2Number(156,18));
-            assertEquals( "0" , Ex1.int2Number(0,2));
-            assertEquals( "11" , Ex1.int2Number(11,10));
+            assertEquals( "0b2" , Ex1.int2Number(0,2));
+            assertEquals( "11bA" , Ex1.int2Number(11,10));
 //            assertEquals( "" , Ex1.int2Number(33,3)); should i even
 
 

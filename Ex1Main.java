@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -28,7 +30,7 @@ public class Ex1Main {
             System.out.println( num1 + " + " + num2 + " = " + Ex1.int2Number( (Ex1.number2Int(num1) + Ex1.number2Int(num2)) , base ) ) ;
             System.out.println( num1 + " * " + num2 + " = " + Ex1.int2Number( (Ex1.number2Int(num1) * Ex1.number2Int(num2)) , base ) ) ;
             String[] a =  { num1 , num2 , Ex1.int2Number( (Ex1.number2Int(num1) + Ex1.number2Int(num2)) , base ) , Ex1.int2Number( (Ex1.number2Int(num1) * Ex1.number2Int(num2)) , base ) };
-            System.out.println( "Max number over " + a.toString() + " is: ");
+            System.out.println( "Max number over " + Arrays.toString(a) + " is: " );
         }
         // add your code here
 
