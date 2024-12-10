@@ -208,6 +208,7 @@ public class Ex1 {
     }
 
 
+
 //          int intRepresent = 0; // int representation of num
 //          String a = "0123456789ABCDEFG"; // all possible characters for num
 //          String number = num.split("b")[0]; // find the number part of num
