@@ -10,12 +10,12 @@ public class Ex1Test {
         @Test
         void computeNumberTest() {
             String s2 = "1011b2";
-            int v = Ex1.number2Int(s2); //11
+            int v = Ex1.number2Int(s2);
             assertEquals(v,11);
             String s10 = "1011bA";
-            v = Ex1.number2Int(s10); //1011
-            s2 = Ex1.int2Number(v,2);  // 11b2
-            int v2 = Ex1.number2Int(s2);  // 1011
+            v = Ex1.number2Int(s10);
+            s2 = Ex1.int2Number(v,2);
+            int v2 = Ex1.number2Int(s2);
             assertEquals(v,v2);
             assertTrue(Ex1.equals(s10,s2));
         }
@@ -27,7 +27,7 @@ public class Ex1Test {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {"1b" , "b2" , "3 b5" , "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "32b3b5", "b" , "15b16" , "1b"};
+            String[] not_good = {" " , "1b" , "b2" , "3 b5" , "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "32b3b5", "b" , "15b16" , "1 b" , "-3b5"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
@@ -44,14 +44,23 @@ public class Ex1Test {
             assertEquals( "100b8" , Ex1.int2Number(64,8));
             assertEquals( "" , Ex1.int2Number(156,18));
             assertEquals( "0b2" , Ex1.int2Number(0,2));
-            assertEquals( "11b10" , Ex1.int2Number(11,10)); // fixxxxxxxxxxxxxxxxxxxxx
-//            assertEquals( "" , Ex1.int2Number(33,3)); should i even
+//            assertEquals( "2bF" , Ex1.int2Number(2,15)); //  fixxxxxxxxxxxxxxxxxxxxx
+//            assertEquals( "1EbG" , Ex1.int2Number(30,16)); // fixxxxxxxxxxxxxxxxxxxxx
+            assertEquals( "11" , Ex1.int2Number(11,10));
+//            assertEquals( "" , Ex1.int2Number(33,3)); //should i even
+//            assertEquals( "" , Ex1.int2Number(0,17)); //should i even
 
 
            // implement this test
         }
         @Test
         void maxIndexTest() {
+            assertEquals(3 , Ex1.maxIndex(new String []{"1" , "2" , "3" , "4"}) );
+            assertEquals(0 , Ex1.maxIndex(new String []{"5" , "2" , "3" , "4"}) );
+            assertEquals(3 , Ex1.maxIndex(new String []{"1" , "2" , "3" , "4"}) );
+            assertEquals(0 , Ex1.maxIndex(new String []{"4" , "4" , "4" , "4"}) );
+            assertEquals(2 , Ex1.maxIndex(new String []{"1" , "2" , "3" , "3"}) );
+
             // implement this test
         }
 

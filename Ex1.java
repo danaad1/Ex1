@@ -13,6 +13,9 @@ import org.apiguardian.api.API;
  * You should implement the following static functions:
  */
 public class Ex1 {
+    public static final String  VALID_CHARS = "0123456789ABCDEFG"; // a string of all possible chars
+
+
     /**
      * Convert the given number (num) to a decimal representation (as int).
      * It the given number is not in a valid format returns -1.
@@ -23,7 +26,7 @@ public class Ex1 {
     public static int number2Int(String num) {
         int ans = -1;
 
-        if (!num.contains("b")){ // add basis 10 to num so that conversion works
+        if (!num.contains("b")) { // add basis 10 to num so that conversion works
             num += "bA";
         }
 
@@ -32,39 +35,12 @@ public class Ex1 {
 
             String number = num.split("b")[0];// extract the number part of num
 
-            int base = charToInt( num.split("b")[1].charAt(0)); // find the basis part of num and convert to int
+            int base = charToInt(num.split("b")[1].charAt(0)); // find the basis part of num and convert to int
 
-            ans = Integer.parseInt(number , base); //java function to convert String to integer in base 10
-//
-//            String a = "0123456789ABCDEFG"; // all possible characters for num
-//
-//            int weight = 0; // weight of number to know by how much to multiply
-//
-//            for (int i = number.length() - 1; i >= 0; i--) {
-////                  for (int j = 0; j < a.length(); j++) {
-//                int index = a.indexOf(number.charAt(i));
-//
-//                ans += (int) (index * Math.pow(base, weight));
-//                weight += 1;
-////                  }
+            ans = Integer.parseInt(number, base); //java function to convert String to integer in base 10
+
         }
 
-//            String [] arr = num.split("b");
-//            int number = Integer.parseInt(arr[0]);
-//            int basis = Integer.parseInt(arr[1]);
-//
-//            int stop = number ; // fix
-//            ans = 0 ;
-
-//            while (remainder > 0){
-//                ans += remainder % 10 ;
-//                remainder = number / 10 ;
-//            }
-//            ans += remainder % 10;
-//
-//            // add your code here
-//
-//            ////////////////////
         return ans;
     }
 
@@ -85,22 +61,21 @@ public class Ex1 {
                 a += "bA";
             }
             String[] arrNum = a.split("b");
-            String validNum = "0123456789ABCDEFG"; //string of all valid characters
+//            String validNum = "0123456789ABCDEFG"; //string of all valid characters ////change
 
             if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
                 ans = false;
-            }
-            else {
+            } else {
 
                 for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
                     char t = arrNum[0].charAt(i);
-                    int n = validNum.indexOf(t + ""); //  break down to num valid bais val
-                    if (!validNum.contains(t + "") || n >= validNum.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
+                    int n = VALID_CHARS.indexOf(t + ""); //  break down to num valid basis val
+                    if (!VALID_CHARS.contains(t + "") || n >= VALID_CHARS.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
                         ans = false;
                         break;
                     }
                 }
-                if (!validNum.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
+                if (!VALID_CHARS.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
                     return false;
                 }
             }
@@ -124,14 +99,14 @@ public class Ex1 {
      */
     public static String int2Number(int num, int base) {
         String ans = "";
+        String basis = base + ""; // to string base
 
-        if(num >= 0 && base >= 2 && base <= 16 ){ // check if num and base fulfill given conditions.
-            ans = Integer.toString(num , base).toUpperCase() + "b" + base; // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
+        if (num >= 0 && base >= 2 && base <= 16) { // check if num and base fulfill given conditions.
+            ans = Integer.toString(num, base).toUpperCase(); // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
+                if (!basis.matches("10")) { // if base is 10 - no need to add b10
+                     ans += "b" + base; // לשרשר
+                }
         }
-//        ans += "b" + base;
-        // add your code here
-
-        ////////////////////
         return ans;
     }
 
@@ -144,13 +119,9 @@ public class Ex1 {
      */
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
-        if (number2Int(n1)!=(number2Int(n2))) { // check if int val of n1 != to int val of n2
-            ans = false;
-        }
-
-        // add your code here
-
-        ////////////////////
+            if (number2Int(n1) != (number2Int(n2))) { // check if int val of n1 != to int val of n2
+                ans = false;
+            }
         return ans;
     }
 
@@ -166,33 +137,14 @@ public class Ex1 {
         int ans = 0;
         int maxVal = 0; // the current max value
 
-        for (int i = 0 ; i < arr.length ; i++ ) { // loop over given array
+        for (int i = 0; i < arr.length; i++) { // loop over given array
             if (number2Int(arr[i]) > maxVal) { // check if value of String at index i is higher that current maxVal
                 maxVal = number2Int(arr[i]); // redefine maxVal
                 ans = i; // define maxVal index to num
             }
         }
-        // add your code here
-
-        ////////////////////
         return ans;
     }
-
-//    /**
-//     * this static function converts a number represented as int to an int at a given basis represented as int
-//     * @param num
-//     * @param base
-//     * @
-//     */
-//      public static int convertToBasis (int num, int base) {
-//            int ans = 0;
-//
-//            //implement here//
-//
-//            return ans;
-//       }
-
-
     /**
      * this static function converts number form a char to an integer
      *
@@ -201,48 +153,14 @@ public class Ex1 {
      */
     public static int charToInt(char num) {
         int intNum = 0;
-        String numbers = "0123456789ABCDEFG"; // all possible characters for num
-        for (int i = 0; i < numbers.length(); i++) { // loop over string numbers
-            if (numbers.charAt(i) == num) { // if chat at i is num // להוסיף בדיקה לארר 1
+//        String numbers = "0123456789ABCDEFG"; // all possible characters for num
+        for (int i = 0; i < VALID_CHARS.length(); i++) { // loop over string numbers
+            if (VALID_CHARS.charAt(i) == num) { // if chat at i is num // להוסיף בדיקה לארר 1
                 intNum = i;  // find the int value of num
             }
         }
         return intNum;
     }
 
-
-
-//          int intRepresent = 0; // int representation of num
-//          String a = "0123456789ABCDEFG"; // all possible characters for num
-//          String number = num.split("b")[0]; // find the number part of num
-//          String base = num.split("b")[1]; // find the basis part of num
-//           int weight = 0 ; // weight of number to know by how much to multiply
-//
-//           for (int i = number.length() - 1; i >= 0; i-- ) {
-//              for (int j = 0; j < a.length(); j++) {
-//                  int index = a.indexOf(i+ "");
-//                  intRepresent += (int) (index * Math.pow(base,weight));
-//             }
-//          }
-
-
-
-//          String  [] number  =  num.split("b"); //to ints add val of g
-//          int intNum =  ;
-//
-//
-//          for (int i = 0; i < number[0].length(); i++) {
-//              for (int j = 0 ; j < a.length() ; j++ ) {
-//                  intNum += a.charAt(j) ;
-//              }
-//          }
-//          System.out.println(intNum);
-
-
-
-
-
-          //implement
-//          return intRepresent;
-   }
+} // end of class
 
