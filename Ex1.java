@@ -13,8 +13,18 @@ import org.apiguardian.api.API;
  * You should implement the following static functions:
  */
 public class Ex1 {
-    public static final String  VALID_CHARS = "0123456789ABCDEFG"; // a string of all possible chars
+    public static final String VALID_CHARS = "0123456789ABCDEFG"; // a string of all possible chars
 
+
+    /**
+     * this static function receives a char (b), if b is in VALID_CHARS String return its index. if not, return -1
+     *
+     * @param b a char
+     * @return int index of b in VALID_CHARS String
+     */
+    public static int indexAtValidChars(String b) {
+        return VALID_CHARS.indexOf(b); // returns index of b in VALID_CHARS String.
+    }
 
     /**
      * Convert the given number (num) to a decimal representation (as int).
@@ -55,7 +65,8 @@ public class Ex1 {
 
         if (a.equals("b")) {
             ans = false;
-        } else { // only if ans is true continue checking validity of num
+        }
+        else { // only if ans is true continue checking validity of num
 
             if (!a.contains("b")) {
                 a += "bA";
@@ -65,8 +76,8 @@ public class Ex1 {
 
             if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
                 ans = false;
-            } else {
-
+            }
+            else {
                 for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
                     char t = arrNum[0].charAt(i);
                     int n = VALID_CHARS.indexOf(t + ""); //  break down to num valid basis val
@@ -75,7 +86,7 @@ public class Ex1 {
                         break;
                     }
                 }
-                if (!VALID_CHARS.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has multiple numbers
+                if (!VALID_CHARS.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has more them one number
                     return false;
                 }
             }
@@ -103,9 +114,9 @@ public class Ex1 {
 
         if (num >= 0 && base >= 2 && base <= 16) { // check if num and base fulfill given conditions.
             ans = Integer.toString(num, base).toUpperCase(); // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
-                if (!basis.matches("10")) { // if base is 10 - no need to add b10
-                     ans += "b" + base; // לשרשר
-                }
+            if (!basis.matches("10")) { // if base is 10 - no need to add b10
+                ans += "b" + base; // לשרשר
+            }
         }
         return ans;
     }
@@ -119,9 +130,9 @@ public class Ex1 {
      */
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
-            if (number2Int(n1) != (number2Int(n2))) { // check if int val of n1 != to int val of n2
-                ans = false;
-            }
+        if (number2Int(n1) != (number2Int(n2))) { // check if int val of n1 != to int val of n2
+            ans = false;
+        }
         return ans;
     }
 
@@ -145,21 +156,46 @@ public class Ex1 {
         }
         return ans;
     }
+
+    public static boolean BaseIsVal (String a){
+        boolean ans = true;
+        if (a.isEmpty() || indexAtValidChars(a) == -1){ // if there is no base (but there is a b) or if base isn't in VALID_CHARS
+            ans = false;
+        }
+           return ans;
+    }
+
+    public static boolean numIsVal (String m , String b){
+        boolean ans = true;
+        for (int i = 0; i < m.length(); i++) { //if base isn't in VALID_CHARS
+            int indexOfI = indexAtValidChars(String.valueOf(i));
+           if (indexOfI == -1 || indexOfI > indexAtValidChars(b) ) { // if i isn't in VALID_CHARS or bigger that base.
+               ans = false ;
+           }
+        }
+        return ans;
+    }
+
+
+
     /**
-     * this static function converts number form a char to an integer
+     * this static function converts number form an integer representation to a char representation
      *
      * @param num a char
-     * @return char as an int
+     * @return char (a) as an integer
      */
     public static int charToInt(char num) {
-        int intNum = 0;
-//        String numbers = "0123456789ABCDEFG"; // all possible characters for num
-        for (int i = 0; i < VALID_CHARS.length(); i++) { // loop over string numbers
-            if (VALID_CHARS.charAt(i) == num) { // if chat at i is num // להוסיף בדיקה לארר 1
-                intNum = i;  // find the int value of num
-            }
-        }
-        return intNum;
+        return indexAtValidChars(num + "");
+    }
+
+    /**
+     * converts number form a char to an integer
+     * @param num
+     * @return
+     */
+    public static char intToChar(int num) {
+        return VALID_CHARS.charAt(num);
+
     }
 
 } // end of class
