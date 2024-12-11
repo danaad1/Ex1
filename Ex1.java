@@ -66,34 +66,43 @@ public class Ex1 {
         if (a.equals("b")) {
             ans = false;
         }
-        else { // only if ans is true continue checking validity of num
+        else { // only if 'ans' is true continue checking validity of num
 
             if (!a.contains("b")) {
                 a += "bA";
             }
             String[] arrNum = a.split("b");
 
-            if (!numIsVal(arrNum[0],arrNum[1]) && !baseIsVal(arrNum[1])) {
-                ans = false;
-            }
-
-
-            if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
+            if (arrNum.length < 2 ){
                 ans = false;
             }
             else {
-                for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
-                    char t = arrNum[0].charAt(i);
-                    int n = VALID_CHARS.indexOf(t + ""); //  break down to num valid basis val
-                    if (!VALID_CHARS.contains(t + "") || n >= VALID_CHARS.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
-                        ans = false;
-                        break;
-                    }
-                }
-                if (!VALID_CHARS.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has more them one number
-                    return false;
+                if (!numIsVal(arrNum[0],arrNum[1]) || !baseIsVal(arrNum[1])) {
+                    ans = false;
                 }
             }
+
+
+
+
+
+
+//            if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
+//                ans = false;
+//            }
+//            else {
+//                for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
+//                    char t = arrNum[0].charAt(i);
+//                    int n = VALID_CHARS.indexOf(t + ""); //  break down to num valid basis val
+//                    if (!VALID_CHARS.contains(t + "") || n >= VALID_CHARS.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
+//                        ans = false;
+//                        break;
+//                    }
+//                }
+//                if (!VALID_CHARS.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has more them one number
+//                    return false;
+//                }
+//            }
 
         }
 
@@ -119,8 +128,9 @@ public class Ex1 {
         if (num >= 0 && base >= 2 && base <= 16) { // check if num and base fulfill given conditions.
             ans = Integer.toString(num, base).toUpperCase(); // a java function that receives a number in base 10 and a base as integers and converts the number to the received base
             if (!basis.matches("10")) { // if base is 10 - no need to add b10
-                ans += "b" + base; // לשרשר
+                ans += "b" + intToChar(base); // לשרשר
             }
+
         }
         return ans;
     }
@@ -171,9 +181,12 @@ public class Ex1 {
 
     public static boolean numIsVal (String m , String b){
         boolean ans = true;
+        if (m.isEmpty()) {
+            ans = false;
+        }
         for (int i = 0; i < m.length(); i++) { //if base isn't in VALID_CHARS
-            int indexOfI = indexAtValidChars(String.valueOf(i));
-           if (indexOfI == -1 || indexOfI > indexAtValidChars(b) ) { // if i isn't in VALID_CHARS or bigger that base.
+            int indexOfI = indexAtValidChars(String.valueOf(m.charAt(i)));
+           if (indexOfI >= indexAtValidChars(b) || indexOfI == -1 ) { // if i isn't in VALID_CHARS or bigger that base.
                ans = false ;
            }
         }

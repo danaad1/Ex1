@@ -27,7 +27,7 @@ public class Ex1Test {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {" " , "1b" , "b2" , "3 b5" , "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "32b3b5", "b" , "15b16" , "1 b" , "-3b5"};
+            String[] not_good = {" " , "1b" , "b2" , "3 b5" , "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB" ,"!@b2", "A", "1bb2" , "32b3b5" , "b" , "15b16" , "1 b" , "-3b5"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
@@ -39,13 +39,13 @@ public class Ex1Test {
             assertEquals( "" , Ex1.int2Number(-2,3));
             assertEquals( "" , Ex1.int2Number(11,17));
             assertEquals( "" , Ex1.int2Number(11,-2));
-            assertEquals( "FFb16" , Ex1.int2Number(255,16));
-            assertEquals( "2Eb16" , Ex1.int2Number(46,16));
+            assertEquals( "FFbG" , Ex1.int2Number(255,16));
+            assertEquals( "2EbG" , Ex1.int2Number(46,16));
             assertEquals( "100b8" , Ex1.int2Number(64,8));
             assertEquals( "" , Ex1.int2Number(156,18));
             assertEquals( "0b2" , Ex1.int2Number(0,2));
-//            assertEquals( "2bF" , Ex1.int2Number(2,15)); //  fixxxxxxxxxxxxxxxxxxxxx
-//            assertEquals( "1EbG" , Ex1.int2Number(30,16)); // fixxxxxxxxxxxxxxxxxxxxx
+            assertEquals( "2bF" , Ex1.int2Number(2,15));
+            assertEquals( "1EbG" , Ex1.int2Number(30,16));
             assertEquals( "11" , Ex1.int2Number(11,10));
             assertEquals( "1020b3" , Ex1.int2Number(33,3));
 //            assertEquals( "" , Ex1.int2Number(0,17)); //should i even
