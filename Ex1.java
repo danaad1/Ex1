@@ -72,7 +72,11 @@ public class Ex1 {
                 a += "bA";
             }
             String[] arrNum = a.split("b");
-//            String validNum = "0123456789ABCDEFG"; //string of all valid characters ////change
+
+            if (!numIsVal(arrNum[0],arrNum[1]) && !baseIsVal(arrNum[1])) {
+                ans = false;
+            }
+
 
             if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
                 ans = false;
@@ -157,7 +161,7 @@ public class Ex1 {
         return ans;
     }
 
-    public static boolean BaseIsVal (String a){
+    public static boolean baseIsVal (String a){
         boolean ans = true;
         if (a.isEmpty() || indexAtValidChars(a) == -1){ // if there is no base (but there is a b) or if base isn't in VALID_CHARS
             ans = false;
