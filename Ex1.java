@@ -82,33 +82,7 @@ public class Ex1 {
                 }
             }
 
-
-
-
-
-
-//            if (arrNum[0].equals("") || arrNum.length < 2) { // if string is empty return not valid
-//                ans = false;
-//            }
-//            else {
-//                for (int i = 0; i < arrNum[0].length(); i++) { // loop over array index 0
-//                    char t = arrNum[0].charAt(i);
-//                    int n = VALID_CHARS.indexOf(t + ""); //  break down to num valid basis val
-//                    if (!VALID_CHARS.contains(t + "") || n >= VALID_CHARS.indexOf(arrNum[1])) { // if any number is invalid or is bigger than basis return false
-//                        ans = false;
-//                        break;
-//                    }
-//                }
-//                if (!VALID_CHARS.contains(arrNum[1]) || arrNum[1].length() > 2) { // if basis in invalid or has more them one number
-//                    return false;
-//                }
-//            }
-
         }
-
-        // add your code here
-
-        ////////////////////
         return ans;
     }
 
@@ -171,6 +145,11 @@ public class Ex1 {
         return ans;
     }
 
+    /**
+     * this static function checks is a given String (a) is in valid base form [1-9 , A-G]
+     * @param a the given base (String)
+     * @return true when base is in valid form
+     */
     public static boolean baseIsVal (String a){
         boolean ans = true;
         if (a.isEmpty() || indexAtValidChars(a) == -1){ // if there is no base (but there is a b) or if base isn't in VALID_CHARS
@@ -179,6 +158,12 @@ public class Ex1 {
            return ans;
     }
 
+    /**
+     * this static function
+     * @param m
+     * @param b
+     * @return
+     */
     public static boolean numIsVal (String m , String b){
         boolean ans = true;
         if (m.isEmpty()) {
@@ -192,8 +177,6 @@ public class Ex1 {
         }
         return ans;
     }
-
-
 
     /**
      * this static function converts number form an integer representation to a char representation

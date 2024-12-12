@@ -122,26 +122,26 @@ public class Ex1Test {
             assertEquals(-1, Ex1.indexAtValidChars("@"));
         }
 
-    @Test
-    void intToChar() {
-            assertEquals('0' , Ex1.intToChar(0));
-            assertEquals('1' , Ex1.intToChar(1));
-            assertEquals('2' , Ex1.intToChar(2));
-            assertEquals('3' , Ex1.intToChar(3));
-            assertEquals('4' , Ex1.intToChar(4));
-            assertEquals('5' , Ex1.intToChar(5));
-            assertEquals('6' , Ex1.intToChar(6));
-            assertEquals('7' , Ex1.intToChar(7));
-            assertEquals('8' , Ex1.intToChar(8));
-            assertEquals('9' , Ex1.intToChar(9));
-            assertEquals('A' , Ex1.intToChar(10));
-            assertEquals('B' , Ex1.intToChar(11));
-            assertEquals('C' , Ex1.intToChar(12));
-            assertEquals('D' , Ex1.intToChar(13));
-            assertEquals('E' , Ex1.intToChar(14));
-            assertEquals('F' , Ex1.intToChar(15));
-            assertEquals('G' , Ex1.intToChar(16));
-    }
+        @Test
+        void intToChar() {
+                assertEquals('0' , Ex1.intToChar(0));
+                assertEquals('1' , Ex1.intToChar(1));
+                assertEquals('2' , Ex1.intToChar(2));
+                assertEquals('3' , Ex1.intToChar(3));
+                assertEquals('4' , Ex1.intToChar(4));
+                assertEquals('5' , Ex1.intToChar(5));
+                assertEquals('6' , Ex1.intToChar(6));
+                assertEquals('7' , Ex1.intToChar(7));
+                assertEquals('8' , Ex1.intToChar(8));
+                assertEquals('9' , Ex1.intToChar(9));
+                assertEquals('A' , Ex1.intToChar(10));
+                assertEquals('B' , Ex1.intToChar(11));
+                assertEquals('C' , Ex1.intToChar(12));
+                assertEquals('D' , Ex1.intToChar(13));
+                assertEquals('E' , Ex1.intToChar(14));
+                assertEquals('F' , Ex1.intToChar(15));
+                assertEquals('G' , Ex1.intToChar(16));
+        }
 
 
     // Add additional test functions - test as much as you can.
