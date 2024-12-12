@@ -19,23 +19,23 @@ public class Ex1Main {
             System.out.println("Enter a string as number#1 (or \"quit\" to end the program): ");
             num1 = sc.next();
 
-                if (!num1.equals("quit")) {
-                    if (!Ex1.isNumber(num1)){
+                if (!num1.equals("quit")) { //continue unless quit
+                    if (!Ex1.isNumber(num1)){ // if num2 is not valid ask for new input
                         continue;
                     }
                     System.out.println("num1 = " + num1 + " is number: " + Ex1.isNumber(num1) + " , value: " + Ex1.number2Int(num1));
 
                     System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
                     num2 = sc.next();
-                    if (!num2.equals("quit")) {
-                        if (!Ex1.isNumber(num2)){
+                    if (!num2.equals("quit")) {  //continue unless quit
+                        if (!Ex1.isNumber(num2)){ // if num2 is not valid ask for new input
                             continue;
                         }
                         System.out.println("num2 = " + num2 + " is number: " + Ex1.isNumber(num2) + " , value: " + Ex1.number2Int(num2));
 
                         System.out.println("Enter a base for output: (a number [2,16]");
                         int base = sc.nextInt();
-                        if(!Ex1.baseIsVal(String.valueOf(base))) {
+                        if(!Ex1.baseIsVal(String.valueOf(Ex1.intToChar(base)))) {
                             continue;
                         }
                             System.out.println(num1 + " + " + num2 + " = " + Ex1.int2Number((Ex1.number2Int(num1) + Ex1.number2Int(num2)), base));
@@ -49,9 +49,6 @@ public class Ex1Main {
                 }
 
         }
-        // add your code here
-
-        /////////////////////
         System.out.println("quiting now...");
     }
 }

@@ -48,7 +48,7 @@ public class Ex1Test {
             assertEquals( "1EbG" , Ex1.int2Number(30,16));
             assertEquals( "11" , Ex1.int2Number(11,10));
             assertEquals( "1020b3" , Ex1.int2Number(33,3));
-//            assertEquals( "" , Ex1.int2Number(0,17)); //should i even
+            assertEquals( "" , Ex1.int2Number(0,17));
 
 
            // implement this test
@@ -60,8 +60,6 @@ public class Ex1Test {
             assertEquals(3 , Ex1.maxIndex(new String []{"1" , "2" , "3" , "4"}) );
             assertEquals(0 , Ex1.maxIndex(new String []{"4" , "4" , "4" , "4"}) );
             assertEquals(2 , Ex1.maxIndex(new String []{"1" , "2" , "3" , "3"}) );
-
-            // implement this test
         }
 
         @Test
@@ -83,8 +81,6 @@ public class Ex1Test {
             assertEquals(7 , Ex1.charToInt(a.charAt(13)));
             assertEquals(8 , Ex1.charToInt(a.charAt(14)));
             assertEquals(9 , Ex1.charToInt(a.charAt(15)));
-
-                // implement
         }
 
         @Test

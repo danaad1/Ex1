@@ -13,8 +13,7 @@ import org.apiguardian.api.API;
  * You should implement the following static functions:
  */
 public class Ex1 {
-    public static final String VALID_CHARS = "0123456789ABCDEFG"; // a string of all possible chars
-
+    public static final String VALID_CHARS = "0123456789ABCDEFG"; // a constant string  variable of all possible chars
 
     /**
      * this static function receives a char (b), if b is in VALID_CHARS String return its index. if not, return -1
@@ -41,7 +40,6 @@ public class Ex1 {
         }
 
         if (isNumber(num)) { // if num is in wanted format (is valid)
-            ans = 0; // int representation of num
 
             String number = num.split("b")[0];// extract the number part of num
 
@@ -55,10 +53,10 @@ public class Ex1 {
     }
 
     /**
-     * This static function checks if the given String (g) is in a valid "number" format.
+     * This static function checks if a given String (g) is in a valid "number" format.
      *
-     * @param a a String representing a number
-     * @return true iff the given String is in a number format
+     * @param a a String representation of a number
+     * @return true if the given String is in a valid "number" format
      */
     public static boolean isNumber(String a) {
         boolean ans = true;
@@ -73,11 +71,11 @@ public class Ex1 {
             }
             String[] arrNum = a.split("b");
 
-            if (arrNum.length < 2 ){
+            if (arrNum.length < 2 ){ // if the string contains 'b' but a base wasn't specified
                 ans = false;
             }
             else {
-                if (!numIsVal(arrNum[0],arrNum[1]) || !baseIsVal(arrNum[1])) {
+                if (!numIsVal(arrNum[0],arrNum[1]) || !baseIsVal(arrNum[1])) { // check if number or base aren't valid
                     ans = false;
                 }
             }
@@ -146,30 +144,30 @@ public class Ex1 {
     }
 
     /**
-     * this static function checks is a given String (a) is in valid base form [1-9 , A-G]
+     * this static function checks if a given String (a) is in valid base form [1-9 , A-G]
      * @param a the given base (String)
-     * @return true when base is in valid form
+     * @return true iff base is in valid form
      */
     public static boolean baseIsVal (String a){
         boolean ans = true;
-        if (a.isEmpty() || indexAtValidChars(a) == -1){ // if there is no base (but there is a b) or if base isn't in VALID_CHARS
+        if (a.isEmpty() || indexAtValidChars(a) == -1){ // if there is no base or if base isn't in VALID_CHARS
             ans = false;
         }
            return ans;
     }
 
     /**
-     * this static function
-     * @param m
-     * @param b
-     * @return
+     * this static function checks if a given String (m) is in valid base form
+     * @param m the given number
+     * @param b the given base
+     * @return true iff the given number is in valid "number" format.
      */
     public static boolean numIsVal (String m , String b){
         boolean ans = true;
         if (m.isEmpty()) {
             ans = false;
         }
-        for (int i = 0; i < m.length(); i++) { //if base isn't in VALID_CHARS
+        for (int i = 0; i < m.length(); i++) {
             int indexOfI = indexAtValidChars(String.valueOf(m.charAt(i)));
            if (indexOfI >= indexAtValidChars(b) || indexOfI == -1 ) { // if i isn't in VALID_CHARS or bigger that base.
                ans = false ;
@@ -179,7 +177,7 @@ public class Ex1 {
     }
 
     /**
-     * this static function converts number form an integer representation to a char representation
+     * this static function converts number form a char representation to an integer representation
      *
      * @param num a char
      * @return char (a) as an integer
@@ -189,9 +187,9 @@ public class Ex1 {
     }
 
     /**
-     * converts number form a char to an integer
-     * @param num
-     * @return
+     * this static function converts number form an integer representation to a char representation
+     * @param num an integer
+     * @return int num as (a) char
      */
     public static char intToChar(int num) {
         return VALID_CHARS.charAt(num);
