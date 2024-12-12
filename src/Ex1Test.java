@@ -139,6 +139,4 @@ public class Ex1Test {
                 assertEquals('G' , Ex1.intToChar(16));
         }
 
-
-    // Add additional test functions - test as much as you can.
     }

@@ -37,15 +37,14 @@ public class Ex1Main {
 
                         System.out.println("Enter a base for output: (a number [2,16]");
                         int base = sc.nextInt();
-                        if(!Ex1.baseIsVal(String.valueOf(Ex1.intToChar(base)))) {
+                        if (!Ex1.baseIsVal(base+ "")){
+                            System.out.println("ERR: wrong base, should be [2,16], got (" + base + ")");
                             continue;
                         }
                             System.out.println(num1 + " + " + num2 + " = " + Ex1.int2Number((Ex1.number2Int(num1) + Ex1.number2Int(num2)), base));
                             System.out.println(num1 + " * " + num2 + " = " + Ex1.int2Number((Ex1.number2Int(num1) * Ex1.number2Int(num2)), base));
                             String[] a = {num1, num2, Ex1.int2Number((Ex1.number2Int(num1) + Ex1.number2Int(num2)), base), Ex1.int2Number((Ex1.number2Int(num1) * Ex1.number2Int(num2)), base)};
-                            System.out.println("Max number over " + Arrays.toString(a) + " is: " + Ex1.maxIndex(a));
-
-
+                            System.out.println("Max number over " + Arrays.toString(a) + " is: " + a[Ex1.maxIndex(a)]);
                     }
 
                 }
