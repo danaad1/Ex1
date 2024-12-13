@@ -116,6 +116,7 @@ public class Ex1Test {
             assertEquals(-1, Ex1.indexAtValidChars("-1"));
             assertEquals(-1, Ex1.indexAtValidChars("-2"));
             assertEquals(-1, Ex1.indexAtValidChars("@"));
+            assertEquals(-1, Ex1.indexAtValidChars("17"));
         }
 
         @Test

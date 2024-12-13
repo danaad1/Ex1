@@ -150,7 +150,7 @@ public class Ex1 {
      */
     public static boolean baseIsVal (String a){
         boolean ans = true;
-        if (a.isEmpty() || indexAtValidChars(a) == -1){ // if there is no base or if base isn't in VALID_CHARS
+        if (a.isEmpty() || indexAtValidChars(a) == -1 || indexAtValidChars(a) < 2){ // if there is no base or if base isn't in VALID_CHARS
             ans = false;
         }
            return ans;
@@ -183,7 +183,11 @@ public class Ex1 {
      * @return char (a) as an integer
      */
     public static int charToInt(char num) {
-        return indexAtValidChars(num + "");
+        int ans = -1;
+        if (VALID_CHARS.contains(num + "")) {
+            ans = indexAtValidChars(num + "");;
+        }
+        return ans;
     }
 
     /**
@@ -192,7 +196,11 @@ public class Ex1 {
      * @return int num as (a) char
      */
     public static char intToChar(int num) {
-        return VALID_CHARS.charAt(num);
+        char ans = '!' ;
+        if (num<VALID_CHARS.length()) {
+            ans = VALID_CHARS.charAt(num);
+        }
+        return ans;
 
     }
 
